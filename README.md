@@ -23,7 +23,7 @@ Intended as a learning experience, this suite will be gradually expanded into a 
 
 * Python 3.11+
 
-* [https://python-poetry.org/]Poetry for dependency management
+* [Poetry](https://python-poetry.org/) for dependency management
 
 ### Instructions
 
