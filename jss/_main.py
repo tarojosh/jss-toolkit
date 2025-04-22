@@ -32,7 +32,7 @@ class MyCLI(click.MultiCommand):
 @click.version_option(package_name="jss")
 @click.pass_context
 def main(ctx):
-    """ Josh's Security Suite (JSS) is a set of commands that allows users to create passwords, encryption and decryption.
+    """ Josh's Security Suite (JSS) is a set of commands that allows users to create passwords, perform encryption and decryption.
 
     \b
     With JSS, you can:
