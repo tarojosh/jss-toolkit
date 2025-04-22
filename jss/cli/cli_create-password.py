@@ -5,9 +5,13 @@ import string as characters
 
 # Generate Password ----------------------------------------@
 @click.command(name='create-password')
-@click.option('-s', '--size', default=12, help='The size of the password. (Default: 12)')
+@click.option('-s', '--size', default=12, help='The size of the password within valid range of 1-90. (Default: 12)')
 def cli(size):
     """Generates a random string of ASCII characters."""
+    if size < 1 or size > 90:
+        click.echo("[!] Input size is not within valid range (1-90).")
+        return
+
     password: str = _generate_password(size)
     click.echo(f"Your password of length {size} is:\n\t{password}\nBe sure to store this in a secure location.")
 

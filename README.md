@@ -17,13 +17,25 @@ The project uses the Click framework to create a multi-command CLI app (mytools)
 Intended as a learning experience, this suite will be gradually expanded into a personal set of lightweight security utilities.
 
 
-## Instructions
+## Installation
 
-WIP
+### Requirements
 
-* Instructions on downloading this repo
+* Python 3.11+
 
-* Instructions on running jss
+* Poetry
+
+### Instructions
+
+1. Clone the repo into the directory you desire using `git clone https://github.com/yourusername/jss.git`.
+
+2. Open the cmd and install dependencies using `poetry install`.
+
+3. In the same terminal, type the command `poetry shell` to start a virtual environment.
+
+4. Finally, type `jss` to get started with using this toolkit.
+
+5. Once you're done, you can exit the virtual environment using `exit`.
 
 ## Folders
 
