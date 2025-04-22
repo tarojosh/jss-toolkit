@@ -12,7 +12,7 @@ It includes three core tools for basic password handling:
 
 * A decryptor for quickly reversing base64-encoded strings
 
-The project uses the Click framework to create a multi-command CLI app (mytools), packaged using Poetry.
+The project uses the Click framework to create a multi-command CLI app, packaged using Poetry.
 
 Intended as a learning experience, this suite will be gradually expanded into a personal set of lightweight security utilities.
 
@@ -39,9 +39,9 @@ Intended as a learning experience, this suite will be gradually expanded into a 
 
 ## Folders
 
-*./reports* - contains the homework assignment scaffold and demo.
+*./jss* - Program files, stores the main cli handler
 
-*./reports/assets* - contains the images necessary for the report.
+*./jss/cli* - Command scripts directory
 
 ## Credits
 Author - Josh Tarongoy
