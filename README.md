@@ -27,7 +27,7 @@ Intended as a learning experience, this suite will be gradually expanded into a 
 
 ### Instructions
 
-1. Clone the repo into the directory you desire using `git clone https://github.com/yourusername/jss.git`.
+1. Clone the repo into the directory you desire using `git clone https://github.com/tarojosh/jss-toolkit.git`.
 
 2. Open the cmd and install dependencies using `poetry install`.
 
