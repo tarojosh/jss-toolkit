@@ -1,4 +1,4 @@
-# Josh's Security Suite
+# Josh's Security Suite Toolkit
 A set of password security tools made using Python and Click.
 
 ## Description
