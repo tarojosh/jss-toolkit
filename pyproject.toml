@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "jss"
+version = "0.1.0"
+description = "A set of password security tools made using Python and Click"
+authors = ["Josh Tarongoy"]
+readme = "README.md"
+packages = [{include = "jss"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.14"
+click = "^8.1.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+jss = "jss._main:main"
