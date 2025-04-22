@@ -24,6 +24,7 @@ def _generate_password(max_length: int) -> str:
     all_characters = all_characters.replace('\'', '')
     all_characters = all_characters.replace('\"', '')
     all_characters = all_characters.replace('~', '')
+    all_characters = all_characters.replace('&', '')
     
     password: str = "".join(rand.sample(all_characters, max_length))
     return(password)

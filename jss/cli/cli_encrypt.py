@@ -11,6 +11,8 @@ def cli(text):
     if not text:
         click.echo("[!] Please provide text to encrypt using --text or -t.")
         return
+    
+    # TODO: Add checks to the text to see if it contains invalid special characters (' " ~ &), and warn the user
 
     encoded = base64.b64encode(text.encode()).decode()
     click.echo(f"[-] Encrypted: {encoded}")

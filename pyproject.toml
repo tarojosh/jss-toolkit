@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jss"
-version = "0.1.0"
+version = "0.1.1"
 description = "A set of password security tools made using Python and Click"
 authors = ["Josh Tarongoy"]
 readme = "README.md"
