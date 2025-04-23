@@ -1,0 +1,8 @@
+TODO:
+- Create unit tests for each cli command with PyTest
+- Add new command: store
+	- Stores a password and name of the login site associated with it to a file
+	- Example: Website:	Youtube
+		   Username:	Josh
+		   Password:	SDF89000_77
+		- Should the user be able to store other information related to websites? What if they use a different DOB for each website and they want to record that?
