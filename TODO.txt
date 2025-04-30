@@ -1,8 +1,9 @@
 TODO:
 - Create unit tests for each cli command with PyTest
-- Add new command: store
-	- Stores a password and name of the login site associated with it to a file
-	- Example: Website:	Youtube
-		   Username:	Josh
-		   Password:	SDF89000_77
-		- Should the user be able to store other information related to websites? What if they use a different DOB for each website and they want to record that?
+
+- In `cli_encrypt`:
+	# # TODO: Add checks to the text to see if it contains invalid special characters (' " ~ &), and warn the user
+    # for illegal_char in banned_characters:
+    #     if illegal_char in text:
+    #         click.echo(f"[!] WARNING: An illegal character {illegal_char} was found in {text} that won't work.")
+    #         return

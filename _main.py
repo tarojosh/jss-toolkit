@@ -1,7 +1,7 @@
 import click
 import os
 
-plugin_folder = os.path.join(os.path.dirname(__file__), 'cli')
+plugin_folder = os.path.join(os.path.dirname(__file__), 'src\cli')
 cli_marker = "cli_"
 
 class MyCLI(click.MultiCommand):
@@ -32,13 +32,13 @@ class MyCLI(click.MultiCommand):
 @click.version_option(package_name="jss")
 @click.pass_context
 def main(ctx):
-    """ Josh's Security Suite (JSS) is a set of commands that allows users to create passwords, perform encryption and decryption.
+    """ Josh's Security Suite (JSS) is a set of commands that allows users to safely store encrypted passwords, and easily retrieve decrypted passwords.
 
     \b
     With JSS, you can:
+    \t• store passwords in a safe location with automatic encryption
+    \t• get those passwords with automatic decryption for use when needed
     \t• generate secure, random passwords
-    \t• encrypt passwords for safe storage
-    \t• decrypt them for use when needed
 
     \b
     Run 'jss --help' to see available commands.

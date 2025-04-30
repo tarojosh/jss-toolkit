@@ -1,5 +1,6 @@
 import click
-import base64
+from utils.encryption import decrypt
+
 
 @click.command()
 @click.option('--text', '-t', help='Text to decrypt.')
@@ -13,7 +14,7 @@ def cli(text):
         return
     
     try:
-        decoded = base64.b64decode(text.encode()).decode()
+        decoded = decrypt(text)
         click.echo(f"Decrypted: {decoded}")
     except Exception as e:
         click.echo(f"Error decoding: {e}")

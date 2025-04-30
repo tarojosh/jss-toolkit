@@ -4,13 +4,13 @@ A set of password security tools made using Python and Click.
 ## Description
 Josh's Security Suite is a personal CLI project built as an extension of a university assignment for User Interfaces & Design.
 
-It includes three core tools for basic password handling:
+It includes core tools for basic password handling:
+
+* Store passwords and the associated website in encrypted text to a safe file location
+
+* Easily access those those passwords by providing the name of the website
 
 * A password generator for creating strong ASCII-based passwords
-
-* An encryptor that base64-encodes passwords
-
-* A decryptor for quickly reversing base64-encoded strings
 
 The project uses the Click framework to create a multi-command CLI app, packaged using Poetry.
 
@@ -39,9 +39,11 @@ Intended as a learning experience, this suite will be gradually expanded into a 
 
 ## Folders
 
-*./jss* - Program files, stores the main cli handler
+*./src* - Contains the main project files
 
-*./jss/cli* - Command scripts directory
+*./src/cli* - Command scripts directory
+
+*./src/utils* - Contanis helpful scripts that can be used by other commands
 
 ## Credits
 Author - Josh Tarongoy
