@@ -2,7 +2,7 @@ import click
 import os
 import json
 from pathlib import Path
-from utils.encryption import decrypt
+from utils.encryption import decrypt, encrypt
 
 # Windows: C:\Users\NAME\.config
 CONFIG_PATH = os.environ.get("XDG_CONFIG_HOME", os.path.join(Path.home(), ".config"))
@@ -32,15 +32,14 @@ def cli(site):
     with open(STORE_PATH, 'r') as f:
         data = json.load(f)
     
-    decrypted_site = decrypt(site)
-
-    encrypted_password = data.get(decrypted_site)
+    encrypted_site = encrypt(site)
+    encrypted_password = data.get(encrypted_site)
 
     if encrypted_password == None:
-        click.echo(f"[FAILURE] No password was found for {decrypted_site}.")
+        click.echo(f"[FAILURE] No password was found for {site}.")
     else:
         decrypted_password = decrypt(encrypted_password)
-        click.echo(f"[SUCCESS] The password for {decrypted_site} is:\t{decrypted_password}")
+        click.echo(f"[SUCCESS] The password for {site} is:\t{decrypted_password}")
 
 
 if __name__ == '__main__':
