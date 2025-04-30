@@ -34,13 +34,15 @@ def cli(site, password):
     with open(STORE_PATH, 'r') as f:
         data = json.load(f)
     
-    if site in data:
+    encypted_site = encrypt(site)
+
+    if encypted_site in data:
         click.echo(f"[!] '{site}' found in file. Updating password...")
     else:
         click.echo(f"[-] '{site}' not found in file. Creating new key...")
 
     encrypted_password = encrypt(password)
-    data[site] = encrypted_password
+    data[encypted_site] = encrypted_password
 
     # Save data to json
     with open(STORE_PATH, 'w') as f:

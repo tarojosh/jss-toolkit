@@ -32,13 +32,15 @@ def cli(site):
     with open(STORE_PATH, 'r') as f:
         data = json.load(f)
     
-    encrypted_password = data.get(site)
+    decrypted_site = decrypt(site)
+
+    encrypted_password = data.get(decrypted_site)
 
     if encrypted_password == None:
-        click.echo(f"[FAILURE] No password was found for {site}.")
+        click.echo(f"[FAILURE] No password was found for {decrypted_site}.")
     else:
         decrypted_password = decrypt(encrypted_password)
-        click.echo(f"[SUCCESS] The password for {site} is:\t{decrypted_password}")
+        click.echo(f"[SUCCESS] The password for {decrypted_site} is:\t{decrypted_password}")
 
 
 if __name__ == '__main__':

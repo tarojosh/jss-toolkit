@@ -1,5 +1,8 @@
 TODO:
 - Create unit tests for each cli command with PyTest
+- Update `store` to have usernames in addition to passwords
+- `delete` command to remove website and password
+- `update` to only edit the username or password of a given website
 
 - In `cli_encrypt`:
 	# # TODO: Add checks to the text to see if it contains invalid special characters (' " ~ &), and warn the user
