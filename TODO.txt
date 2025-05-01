@@ -1,6 +1,7 @@
 TODO:
 - Create unit tests for each cli command with PyTest
 - Update `store` to have usernames in addition to passwords
+- Update `get` to have an option that will return all available websites
 - `delete` command to remove website and password
 - `update` to only edit the username or password of a given website
 

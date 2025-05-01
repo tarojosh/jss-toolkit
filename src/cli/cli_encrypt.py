@@ -2,7 +2,7 @@ import click
 from utils.encryption import encrypt
 
 
-banned_characters = ['\'', '\"', '~', '&']
+# banned_characters = ['\'', '\"', '~', '&']
 
 @click.command()
 @click.option('--text', '-t', required=True, prompt='Password', help='Text to encrypt.')
@@ -16,7 +16,7 @@ def cli(text):
         return
 
     encoded = encrypt(text)
-    click.echo(f"[-] Encrypted: {encoded}")
+    click.echo(f"[SUCCESS] Encrypted: {encoded}")
 
 
 if __name__ == '__main__':

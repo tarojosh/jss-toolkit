@@ -23,8 +23,9 @@ def ensure_store_file():
 
 
 @click.command()
-@click.option('--site', '-s', prompt='Website name', required=True, help='The website you are trying to get the password of.')
-def cli(site):
+@click.option('--all', '-a', 'show_all', is_flag=True, help='Display all stored websites.')
+@click.option('--site', '-s', help='The website you are trying to get the password of.')
+def cli(site, show_all):
     """Retrieve password from user directory."""
     ensure_store_file()
 
@@ -32,10 +33,18 @@ def cli(site):
     with open(STORE_PATH, 'r') as f:
         data = json.load(f)
     
+    if show_all:
+        for _s in data.keys():
+            click.echo(decrypt(_s))
+        return
+
+    if not site:
+        site = click.prompt("Website name")
+
     encrypted_site = encrypt(site)
     encrypted_password = data.get(encrypted_site)
 
-    if encrypted_password == None:
+    if encrypted_password is None:
         click.echo(f"[FAILURE] No password was found for {site}.")
     else:
         decrypted_password = decrypt(encrypted_password)
