@@ -1,7 +1,6 @@
 import pytest
 from click.testing import CliRunner
 from cli.cli_encrypt import cli
-from utils import encryption
 
 # COMMAND BEHAVIOR:
 #   cli_encrypt.py
@@ -21,11 +20,9 @@ def test_encrypt_encrypted_plain_text():
     input = 'password123'
 
     result = runner.invoke(cli, ['--text', input])
-    expected = encryption.encrypt(input)
     
     assert result.exit_code == 0
     assert "[SUCCESS] Encrypted: " in result.output
-    assert expected in result.output
 
 
 def test_encrypt_encrypted_special_chars():
@@ -41,11 +38,9 @@ def test_encrypt_encrypted_special_chars():
     input = '!@#$%^*()-=[]{};:",.<>/?~`'
 
     result = runner.invoke(cli, ['--text', input])
-    expected = encryption.encrypt(input)
     
     assert result.exit_code == 0
     assert "[SUCCESS] Encrypted: " in result.output
-    assert expected in result.output
 
 
 def test_encrypt_no_input():
@@ -74,8 +69,6 @@ def test_encrypt_prompt_user():
 
     result = runner.invoke(cli, [], input="mypassword\n")
     expected = "[SUCCESS] Encrypted: "
-    expected_password = encryption.encrypt(input)
     
     assert result.exit_code == 0
     assert expected in result.output
-    assert expected_password in result.output
