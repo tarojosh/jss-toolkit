@@ -17,7 +17,7 @@ def ensure_store_file():
     os.makedirs(os.path.dirname(STORE_PATH), exist_ok=True)
     # Create a new file if config file does not exists
     if not os.path.exists(STORE_PATH):
-        click.echo(f"[!] Store file not found. Creating a new one at {CONFIG_PATH}.")
+        click.echo(f"[WARNING] Store file not found. Creating a new one at {CONFIG_PATH}.")
         with open(STORE_PATH, 'w') as f:
             json.dump({}, f)
 
@@ -34,21 +34,36 @@ def cli(site, show_all):
         data = json.load(f)
     
     if show_all:
-        for _s in data.keys():
-            click.echo(decrypt(_s))
-        return
+        _display_all_websites(data)
+    else:
+        # Make sure to get a website name from the user
+        if not site:
+            site = click.prompt("Website name")
+        _get_website_record(data, site)
 
-    if not site:
-        site = click.prompt("Website name")
 
+def _get_website_record(data, site):
     encrypted_site = encrypt(site)
     encrypted_password = data.get(encrypted_site)
 
     if encrypted_password is None:
-        click.echo(f"[FAILURE] No password was found for {site}.")
+        click.echo(f"[WARNING] No password was found for {site}.")
     else:
         decrypted_password = decrypt(encrypted_password)
-        click.echo(f"[SUCCESS] The password for {site} is:\t{decrypted_password}")
+        click.echo(f"[RESULT] The password for {site} is:\t{decrypted_password}")
+    return
+
+
+def _display_all_websites(data):
+    websites = data.keys()
+    if len(websites) == 0:
+        click.echo(f"[WARNING] No website passwords are stored in file.")
+        return
+
+    click.echo(f"[RESULT] {len(websites)} stored password(s) were found:")
+    for _s in websites:
+        click.echo(decrypt(_s))
+    return
 
 
 if __name__ == '__main__':

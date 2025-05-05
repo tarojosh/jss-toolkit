@@ -12,7 +12,7 @@ def cli(text):
     Tip: Be sure to wrap your password in single or double quotes when running this command.
     """
     if not text:
-        click.echo("[!] Please provide text to encrypt using --text or -t.")
+        click.echo("[INFO] Please provide text to encrypt using --text or -t.")
         return
 
     encoded = encrypt(text)

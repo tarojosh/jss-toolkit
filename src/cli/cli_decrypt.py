@@ -10,12 +10,12 @@ def cli(text):
     Tip: Be sure to wrap your password in single or double quotes when running this command.
     """
     if not text:
-        click.echo("[!] Please provide text to decrypt using --text or -t.")
+        click.echo("[INFO] Please provide text to decrypt using --text or -t.")
         return
     
     try:
         decoded = decrypt(text)
-        click.echo(f"Decrypted: {decoded}")
+        click.echo(f"[SUCCESS] Decrypted: {decoded}")
     except Exception as e:
         click.echo(f"[ERROR] Unable to decode: {e}")
 

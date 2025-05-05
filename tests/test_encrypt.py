@@ -52,7 +52,7 @@ def test_encrypt_no_input():
     input = ''
 
     result = runner.invoke(cli, ['--text', input])
-    expected = "[!] Please provide text to encrypt using --text or -t."
+    expected = "[INFO] Please provide text to encrypt using --text or -t."
     
     assert result.exit_code == 0
     assert expected in result.output

@@ -37,9 +37,15 @@ def cli(site, password):
     encypted_site = encrypt(site)
 
     if encypted_site in data:
-        click.echo(f"[!] '{site}' found in file. Updating password...")
+        # Tell the user that website has already been stored with a password
+        # Ask if they want to update existing password.
+        replace_password = click.confirm(f"[WARNING] '{site}' is already stored in file. Do you want to update the password?")
+        if not replace_password:
+            click.echo(f"[ABORT] Canceling password update...")
+            return
+        click.echo(f"[WARNING] Updating password for '{site}'...")
     else:
-        click.echo(f"[-] '{site}' not found in file. Creating new key...")
+        click.echo(f"[INFO] '{site}' not found in file. Creating new key...")
 
     encrypted_password = encrypt(password)
     data[encypted_site] = encrypted_password
