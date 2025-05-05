@@ -8,16 +8,16 @@ from utils.store_file import ensure_store_file, STORE_PATH
 @click.option('--site', '-s', prompt='Website name', required=True, help='Name of the website for the password.')
 @click.option('--password', '-p', prompt='Password', required=True, help='Password being used for the website.')
 def cli(site, password):
-    """Store the website and password in user directory."""
+    """Store and update website and password stored in the user directory."""
     ensure_store_file()
 
     # Load current data from the store.json
     with open(STORE_PATH, 'r') as f:
         data = json.load(f)
     
-    encypted_site = encrypt(site)
+    encrypted_site = encrypt(site)
 
-    if encypted_site in data:
+    if encrypted_site in data:
         # Tell the user that website has already been stored with a password
         # Ask if they want to update existing password.
         replace_password = click.confirm(f"[WARNING] '{site}' is already stored in file. Do you want to update the password?")
@@ -29,7 +29,7 @@ def cli(site, password):
         click.echo(f"[INFO] '{site}' not found in file. Creating new key...")
 
     encrypted_password = encrypt(password)
-    data[encypted_site] = encrypted_password
+    data[encrypted_site] = encrypted_password
 
     # Save data to json
     with open(STORE_PATH, 'w') as f:

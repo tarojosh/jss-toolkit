@@ -25,6 +25,7 @@ def cli(site, show_all):
 
 
 def _get_website_record(data, site):
+    """Return the password of the given website name."""
     encrypted_site = encrypt(site)
     encrypted_password = data.get(encrypted_site)
 
@@ -37,6 +38,7 @@ def _get_website_record(data, site):
 
 
 def _display_all_websites(data):
+    """Display all website names found on the file."""
     websites = data.keys()
     if len(websites) == 0:
         click.echo(f"[WARNING] No website passwords are stored in file.")
@@ -44,7 +46,7 @@ def _display_all_websites(data):
 
     click.echo(f"[RESULT] {len(websites)} stored password(s) were found:")
     for _s in websites:
-        click.echo(decrypt(_s))
+        click.echo(f"\t{decrypt(_s)}")
     return
 
 

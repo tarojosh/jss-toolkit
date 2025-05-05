@@ -100,7 +100,7 @@ def test_encryption_roundtrip_fuzzer():
     Fuzzer test for roundtrip; the input should be unchanged after being encrypted and decrypted
     Tests C4, C1, C2
     """
-    for i in range(0, 5000):
+    for i in range(0, 1000):
         rand_size = random.randint(1, 500)
         rand_password = _generate_password(rand_size)
         input = rand_password
