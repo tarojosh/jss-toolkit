@@ -32,7 +32,7 @@ def test_encrypt_encrypted_special_chars():
     IMPORTANT NOTE: 
         While this test does pass, the user themselves won't be able 
         to input certain special characters like the & symbol
-        as that symbol is reserved and throws an error.
+        as that symbol is reserved and will throw an error.
     """
     runner = CliRunner()
     input = '!@#$%^*()-=[]{};:",.<>/?~`'

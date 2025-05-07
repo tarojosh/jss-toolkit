@@ -17,11 +17,12 @@ def cli(site):
     encrypted_site = encrypt(site)
 
     if encrypted_site in data:
-        # Ask if they want to delete the record.
+        # Ask if they want to delete the record
         confirm_removal = click.confirm(f"[WARNING] '{site}' has been found in file. Are you sure you want to delete this record?")
         if not confirm_removal:
             click.echo(f"[ABORT] Stopping record deletion...")
             return
+        # Otherwise, continue with the command function
         click.echo(f"[INFO] Deleting record for '{site}'...")
     else:
         click.echo(f"[WARNING] '{site}' not found in file. Stopping command...")
