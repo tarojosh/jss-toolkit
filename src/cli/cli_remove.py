@@ -8,7 +8,7 @@ from utils.store_file import ensure_store_file, STORE_PATH
 @click.option('--site', '-s', prompt='Website name', required=True, help='Name of the website to be deleted.')
 def cli(site):
     """Delete website and password record from the file."""
-    ensure_store_file()
+    ensure_store_file(STORE_PATH)
 
     # Load current data from the store.json
     with open(STORE_PATH, 'r') as f:
@@ -35,7 +35,7 @@ def cli(site):
     with open(STORE_PATH, 'w') as f:
         json.dump(data, f, indent=2)
     
-    click.echo(f"[SUCCESS] Removed {site} from the file.")
+    click.echo(f"[SUCCESS] Removed \'{site}\' from the file.")
 
 
 if __name__ == '__main__':

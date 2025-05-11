@@ -1,9 +1,6 @@
 import click
 from utils.encryption import encrypt
 
-
-# banned_characters = ['\'', '\"', '~', '&']
-
 @click.command()
 @click.option('--text', '-t', required=True, prompt='Password', help='Text to encrypt.')
 def cli(text):

@@ -9,7 +9,7 @@ from utils.store_file import ensure_store_file, STORE_PATH
 @click.option('--site', '-s', help='The website you are trying to get the password of.')
 def cli(site, show_all):
     """Retrieve password from user directory."""
-    ensure_store_file()
+    ensure_store_file(STORE_PATH)
 
     # Load current data from the store.json
     with open(STORE_PATH, 'r') as f:
