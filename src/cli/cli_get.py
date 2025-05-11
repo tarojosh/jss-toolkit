@@ -48,7 +48,3 @@ def _display_all_websites(data):
     for _s in websites:
         click.echo(f"\t{decrypt(_s)}")
     return
-
-
-if __name__ == '__main__':
-    cli()

@@ -37,7 +37,3 @@ def cli(site, password, path):
         json.dump(data, f, indent=2)
     
     click.echo(f"[SUCCESS] Stored password for {site}.")
-
-
-if __name__ == '__main__':
-    cli()

@@ -29,8 +29,3 @@ def _generate_password(max_length: int) -> str:
     max_length = max(0, min(max_length, 94))  # Clamp value
     password = ''.join(rand.choices(all_characters, k=max_length))
     return(password)
-
-
-if __name__ == '__main__':
-    cli()
-

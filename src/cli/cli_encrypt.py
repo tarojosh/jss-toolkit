@@ -14,7 +14,3 @@ def cli(text):
 
     encoded = encrypt(text)
     click.echo(f"[SUCCESS] Encrypted: {encoded}")
-
-
-if __name__ == '__main__':
-    cli()

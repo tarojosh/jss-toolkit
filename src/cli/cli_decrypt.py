@@ -18,7 +18,3 @@ def cli(text):
         click.echo(f"[SUCCESS] Decrypted: {decoded}")
     except Exception as e:
         click.echo(f"[ERROR] Unable to decode: {e}")
-
-
-if __name__ == '__main__':
-    cli()

@@ -36,7 +36,3 @@ def cli(site):
         json.dump(data, f, indent=2)
     
     click.echo(f"[SUCCESS] Removed \'{site}\' from the file.")
-
-
-if __name__ == '__main__':
-    cli()
