@@ -1,5 +1,4 @@
 from click.testing import CliRunner
-from utils.encryption import encrypt
 from utils.store_file import TEMP_PATH, create_temp_file, remove_temp_file
 from cli.cli_store import cli
 

@@ -1,9 +1,6 @@
 TODO:
-- Update `store` to have usernames in addition to passwords
 - Create unit test for:
-    - cli_store
-    - cli_get
-    - cli_remove
     - cli_decrypt
-    - cli_create-password
-    - util_store_file
+    - cli_password
+    - util_store_file  (NOT SURE HOW TO DO THIS YET)
+- Update `store` to have usernames in addition to passwords

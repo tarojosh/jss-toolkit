@@ -6,12 +6,13 @@ from utils.store_file import ensure_store_file, STORE_PATH
 
 @click.command()
 @click.option('--site', '-s', prompt='Website name', required=True, help='Name of the website to be deleted.')
-def cli(site):
+@click.option('--path', hidden=True, default=STORE_PATH, help='Path of the file that will store the info. FOR TESTING ONLY.')
+def cli(site, path):
     """Delete website and password record from the file."""
-    ensure_store_file(STORE_PATH)
+    ensure_store_file(path)
 
     # Load current data from the store.json
-    with open(STORE_PATH, 'r') as f:
+    with open(path, 'r') as f:
         data = json.load(f)
     
     encrypted_site = encrypt(site)
@@ -32,7 +33,7 @@ def cli(site):
     del data[encrypted_site]
 
     # Save data to json
-    with open(STORE_PATH, 'w') as f:
+    with open(path, 'w') as f:
         json.dump(data, f, indent=2)
     
     click.echo(f"[SUCCESS] Removed \'{site}\' from the file.")

@@ -7,12 +7,13 @@ from utils.store_file import ensure_store_file, STORE_PATH
 @click.command()
 @click.option('--all', '-a', 'show_all', is_flag=True, help='Display all stored websites.')
 @click.option('--site', '-s', help='The website you are trying to get the password of.')
-def cli(site, show_all):
+@click.option('--path', hidden=True, default=STORE_PATH, help='Path of the file that will store the info. FOR TESTING ONLY.')
+def cli(site, show_all, path):
     """Retrieve password from user directory."""
-    ensure_store_file(STORE_PATH)
+    ensure_store_file(path)
 
     # Load current data from the store.json
-    with open(STORE_PATH, 'r') as f:
+    with open(path, 'r') as f:
         data = json.load(f)
     
     if show_all:
