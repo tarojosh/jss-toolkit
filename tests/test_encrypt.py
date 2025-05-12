@@ -65,9 +65,9 @@ def test_encrypt_prompt_user():
     Tests C3
     """
     runner = CliRunner()
-    input = ''
+    input = "mypassword\n"
 
-    result = runner.invoke(cli, [], input="mypassword\n")
+    result = runner.invoke(cli, [], input=input)
     expected = "[SUCCESS] Encrypted: "
     
     assert result.exit_code == 0
