@@ -1,7 +1,7 @@
 import click
 import os
 
-plugin_folder = os.path.join(os.path.dirname(__file__), 'src\cli')
+plugin_folder = os.path.join(os.path.dirname(__file__), 'src/cli')
 cli_marker = "cli_"
 
 class MyCLI(click.MultiCommand):
